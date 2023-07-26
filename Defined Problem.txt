@@ -1,0 +1,9 @@
+Make an attendance calculator website, which can run on local host
+you can take the inputs of user as the start of the semester date and end 
+of the semester date, and you can give the options to the user where user
+can add his leaves, if tomorrow or more days, he is going to take a leave
+then what will be his/her attendace after the leave period and how many
+days will it take to reach 75% attendance over all, make this as per C4 
+section time table. The user can also add current attendance and start
+from today his calculations. The holidays calender is on the CBIT website
+there's no attendance or classes on holidays. Make sure to remember that.

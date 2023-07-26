@@ -1,0 +1,23 @@
+Number of Mondays that are holidays: 3
+Number of Tuesdays that are holidays: 2
+Number of Wednesdays that are 
+holidays: 3
+Number of Thursdays that are holidays: 3
+Number of Fridays that are holidays: 4
+
+
+Number of Mondays: 18
+Number of Tuesdays: 18        
+Number of Wednesdays: 18      
+Number of Thursdays: 18       
+Number of Fridays: 18
+Number of Saturdays: 18       
+Number of Sundays: 18
+
+M:15
+T: 16
+W:15
+Th:15
+F:14
+
+{'CHEM': 45, 'DENM': 58, 'BEE': 44, 'CE': 45, 'OOP-LAB': 32, 'CHEM-LAB': 48, 'OOP': 45, 'RnD-LAB': 59, 'BEE-LAB': 30, 'SPORTS': 14, 'MENTORING': 14}

@@ -1,0 +1,22 @@
+predefined data:
+start and end of the semester dates
+the class time table: how many classes of each subject on a specific day
+how many total classes of each subject are there in the semester
+
+inputs to take from user:
+	choices to give to the user:
+	1.set current attendance data
+		1.1 Dates of absent and how many/which classes
+		      you bunked
+	2. Reset current attendance data.
+	3. Apply for leave
+		3.1 Total day absent or Specific class bunk
+		(should return: what will be attendance after leave,
+		how many days will it take to be 75%, what will be 
+		attendance at the end of the semester if no further
+		leave is taken)
+	4. Know my attendance(also return how many days will
+			       it take it to 75 % if applicable
+			       and what will be the attendance at 
+				end date of semester).
+
