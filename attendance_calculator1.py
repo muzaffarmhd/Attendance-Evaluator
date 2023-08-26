@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+import helperfuc
 import json
 
 
@@ -34,117 +35,56 @@ total_sem_dict_classes=json.load(tc_file)
 
 '''calculating total number of classes that has been completed as of yesterday'''
 
-def calculate_classes_as_of_today():
 
-
-    # Define the date range
-    start_date = datetime(2023, 4, 1)
-    end_date = datetime.now()
-
-    # Initialize the counters for each weekday
-    weekday_counts = {
-        0: 0,  # Monday
-        1: 0,  # Tuesday
-        2: 0,  # Wednesday
-        3: 0,  # Thursday
-        4: 0   # Friday
-    }
-
-
-    #print("Please enter the holiday dates (YYYY-MM-DD). Enter 'done' to finish.")
-
-    for i in holidays_list:
-
-               
-        try:
-            holiday_date = datetime.strptime(i, "%Y-%m-%d")
-            
-            # Check if the holiday falls within the specified date range
-            if start_date <= holiday_date <= end_date:
-                # Check if the holiday falls on a weekday (Monday to Friday)
-                weekday = holiday_date.weekday()
-                if weekday in weekday_counts.keys():
-                    weekday_counts[weekday] += 1
-            else:
-                pass
-                # print("Holiday date is outside the specified date range.")
-        
-        except ValueError:
-            pass
-            # print("Invalid date format. Please enter the date in YYYY-MM-DD format.")
-
-    # Print the results
-    # print("Number of Mondays that are holidays:", weekday_counts[0])
-    # print("Number of Tuesdays that are holidays:", weekday_counts[1])
-    # print("Number of Wednesdays that are holidays:", weekday_counts[2])
-    # print("Number of Thursdays that are holidays:", weekday_counts[3])
-    # print("Number of Fridays that are holidays:", weekday_counts[4])
-
-
-
-
-
-    def count_weekdays(start_date, end_date):
-        count = [0] * 7  # Initialize count for each weekday
-        current_date = start_date
-
-        while current_date <= end_date:
-            count[current_date.weekday()] += 1
-            current_date += timedelta(days=1)
-
-        return count
-
-    # Example usage
-
-    weekdays_count = count_weekdays(start_date, end_date)
-    global totalweekdayvalues
-    totaldaysasoftoday={}
-
-    weekday_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    # for i in range(7):
-    #     print("Number of", weekday_names[i] + "s:", weekdays_count[i])
-
-    for i in range(5):
-        # print("Total no. of", weekday_names[i], "classes", weekdays_count[i]-weekday_counts[i])
-        totaldaysasoftoday[weekday_names[i]]=weekdays_count[i]-weekday_counts[i]
-    #print(totaldaysasoftoday)
-    totalweekdayvalues=totaldaysasoftoday
-
-#weekdaysasoftoday()
-#data stored in dictionary: totalweekdayvalues
-
-#def calculate_classes_as_of_today(weekclasslist,dic2):
-    dic2_as_list=[]
-    for i in totalweekdayvalues:
-        dic2_as_list.append(totalweekdayvalues[i])
-    def multiplier(dictionary,value):
-        for i in dictionary:
-            dictionary[i]=value*dictionary[i]
-        # print(dictionary)
-    for i in range(5):
-        multiplier(weekclasslist[i],dic2_as_list[i])
-
-
-
-    global totalclassesoftoday
-    total_classes_of_today = {}
-
-    def add_to_combined(dictionary):
-        for key, value in dictionary.items():
-            if key in total_classes_of_today:
-                total_classes_of_today[key] += value
-            else:
-                total_classes_of_today[key] = value
-    for i in range(5):
-        add_to_combined(weekclasslist[i])
-    totalclassesoftoday=total_classes_of_today
-calculate_classes_as_of_today()
+s=helperfuc.calculate_classes_as_of_today()
+totalclassesoftoday=s
 #data stored in dictionary: totalclassesoftoday
-print(totalclassesoftoday)
 
 
-
+ss=["CHEM",
+    "DENM",
+    "BEE",
+    "CE",
+    "OOP-LAB",
+    "CHEM-LAB",
+    "OOP",
+    "RnD-LAB",
+    "BEE-LAB",
+    "SPORTS",
+    "MENTORING"]
+input_attendance_dict={}
 def enterattendance():
+    try:
+        input_attendance= [int(input(f"Enter number of {ss[i]} classes you attended :")) for i in range(11)  ]
+        for i in range(11):
+            input_attendance_dict[ss[i]]=input_attendance[i]
+        print(input_attendance_dict)
+        
+    except:
+        print("invalid attendance")
+#input attendace stored in: input_attendace_dict  
+
+# Specify the path to your JSON file
+file_path = 'input_attendance.json'
+
+# Read the JSON data from the file
+
+data=totalclassesoftoday
+
+# Write the updated data back to the file
+with open(file_path, 'w+') as file:
+    input_data=json.load(file)
+    
+    json.dump(data, file, indent=4)
+
+
+
+
+
+def attendance_calculator(x,y):
+    current_attendance={}
+    for i in ss:
+        current_attendance[i]=(input_attendance_dict[i]/totalclassesoftoday[i])*100
     pass
 
 
